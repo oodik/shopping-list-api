@@ -4,7 +4,7 @@ const app = express();
 
 const { MongoClient } = require("mongodb");
 
-const uri = "mongodb+srv://oodik:oOdik777@yourClusterName.n9z04.mongodb.net/sample_mflix?retryWrites=true&w=majority";
+const uri = process.env.MONGODB_URI;
 
 // use the express-static middleware
 app.use(express.static("public"));
