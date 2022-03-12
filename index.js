@@ -2,6 +2,7 @@
 const express = require("express");
 const app = express();
 
+const list = [];
 
 
 // const { MongoClient } = require("mongodb");
