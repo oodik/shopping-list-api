@@ -7,55 +7,19 @@ const app = express();
 const { MongoClient } = require("mongodb");
 const uri = process.env.MONGODB_URI;
 
-// use the express-static middleware
-app.use(express.static("public"));
-// define the first route
-app.get("/api/movie", async function (req, res) {
-  const client = new MongoClient(uri, { useUnifiedTopology: true });
-  
-  try {
-    await client.connect();
-
-    const database = client.db('sample_mflix');
-    const collection = database.collection('movies');
-
-    // Query for a movie that has the title 'Back to the Future'
-    const query = { genres: "Comedy", poster: { $exists: true } };
-    const cursor = await collection.aggregate([
-      { $match: query },
-      { $sample: { size: 1 } },
-      { $project: 
-        {
-          title: 1,
-          fullplot: 1,
-          poster: 1
-        }
-      }
-    ]);
-
-    const movie = await cursor.next();
-
-    return res.json(movie);
-  } catch(err) {
-    console.log(err);
-  }
-  finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-});
-
-const key = "1234";
+mongodb.connect(uri, { useNewUrlParser: true })
+  .then(() => console.log('Connected to MongoDB!'))
+  .catch(err => console.error('Could not connect to MongoDB... ', err));
 
 
-const listSchema = new mongoose.Schema({
+const listSchema = new mongodb.Schema({
     name: String,
     date: String,
     createdBy: String,
     type: String
 });
 
-const ListMongo = mongoose.model('List', listSchema);
+const ListMongo = mongodb.model('List', listSchema);
 
 const item = new ListMongo({
     name: těstoviny,
@@ -64,6 +28,19 @@ const item = new ListMongo({
     type: jidlo
 });
 item.save()
+
+
+
+
+
+
+
+
+
+
+
+
+const key = "1234";
 
 app.get("/api/shopping-list", (req, res) => {
 
