@@ -1,6 +1,7 @@
 // create an express app
 const express = require("express");
 const app = express();
+app.use(express.json());
 var port = process.env.PORT || 1337;
 
 
@@ -45,7 +46,7 @@ app.get("/api/shopping-list", (req, res) => {
 
 app.post('/api/shopping-list', (req, res) => {
 
-    console.log(req.body);
+    console.log(req);
 
       
     const itemPost = new ListMongo({
