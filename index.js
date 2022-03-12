@@ -29,11 +29,6 @@ const ListMongo = mongoose.model('List', listSchema);
 
 
 
-
-
-
-
-
 const key = "1234";
 
 app.get("/api/shopping-list", (req, res) => {
