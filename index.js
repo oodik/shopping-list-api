@@ -45,7 +45,7 @@ app.get("/api/shopping-list", (req, res) => {
 
 app.post('/api/shopping-list', (req, res) => {
 
-    conosle.log(req.body);
+    console.log(req.body);
 
       
     const itemPost = new ListMongo({
