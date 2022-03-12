@@ -72,6 +72,7 @@ app.delete('/api/shopping-list/:id', (req, res) => {
     ListMongo.findByIdAndDelete(id)
     .then(result => {
             if (result)
+              console.log(result);
                 res.json(result);
             else
                 res.status(404).send("nebylo nalezeno!");
