@@ -76,7 +76,5 @@ app.delete('/api/shopping-list/:id', (req, res) => {
         })
         .catch(err => { res.send("Chyba při mazání položky!") });
 });
-    }
-});
-
+   
 app.listen(port, () => console.log("Listening on port " + port + "..."));
