@@ -79,7 +79,7 @@ app.delete('/api/shopping-list/:id', (req, res) => {
                 res.status(404).send("nebylo nalezeno!");
             }
         })
-        .catch(err => { res.send("Chyba při mazání položky!") });
+        .catch(err => { res.send("Chyba při mazání položky! " + err) });
 });
    
 app.listen(port, () => console.log("Listening on port " + port + "..."));
