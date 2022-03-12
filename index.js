@@ -1,6 +1,7 @@
 // create an express app
 const express = require("express");
 const app = express();
+var port = process.env.PORT || 1337;
 
 
 const list = [{id:0, name: "piti", date:"udas"}];
@@ -81,4 +82,4 @@ app.delete('/api/shopping-list/:id', (req, res) => {
     }
 });
 
-app.listen(8080, () => console.log('Listening on port 8080...'));
+app.listen(port, () => console.log("Listening on port " + port + "..."));
