@@ -4,7 +4,7 @@ const app = express();
 
 
 
-const { MongoClient } = require("mongodb");
+// const { MongoClient } = require("mongodb");
 const mongoose = require('mongoose');
 const uri = process.env.MONGODB_URI;
 
@@ -20,7 +20,7 @@ const listSchema = new mongoose.Schema({
     type: String
 });
 
-const ListMongo = mongodb.model('List', listSchema);
+const ListMongo = mongoose.model('List', listSchema);
 
 const item = new ListMongo({
     name: těstoviny,
