@@ -48,7 +48,7 @@ app.get("/api/shopping-list", (req, res) => {
 
 app.post('/api/shopping-list', (req, res) => {
 
-    if (req.body.key === "1234") {
+
     async function saveItem() {
       
     const itemPost = new ListMongo({
@@ -57,14 +57,12 @@ app.post('/api/shopping-list', (req, res) => {
       createdBy: req.body.who,
       type: req.body.type
       });
-      const result = await itemPost.save();
+      await itemPost.save();
       console.log(result.id);
     }
-
+  
     res.send("uspěšné");
-    } else {
-        res.send("key error");
-    }
+
 });
 
 app.delete('/api/shopping-list/:id', (req, res) => {
