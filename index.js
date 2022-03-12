@@ -52,7 +52,8 @@ app.post('/api/shopping-list', (req, res) => {
       createdBy: req.body.who,
       type: "jidlo"
       });
-      itemPost.save();
+       const result = await itemPost.save();
+      console.log(result.id);
 
     }
     saveItem();
