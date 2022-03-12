@@ -45,11 +45,11 @@ app.get("/api/shopping-list", (req, res) => {
 
 app.post('/api/shopping-list', (req, res) => {
 
-    const nameP = req.body.name;
+    conosle.log(req.body);
 
       
     const itemPost = new ListMongo({
-      name: nameP,
+      name: "ashrt",
       date: "saff",
       createdBy: "moijoi",
       type: "jidlo"
