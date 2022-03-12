@@ -23,10 +23,10 @@ const listSchema = new mongoose.Schema({
 const ListMongo = mongoose.model('List', listSchema);
 
 const item = new ListMongo({
-    name: těstoviny,
-    date: idk,
-    createdBy: oodik,
-    type: jidlo
+    name: "těstoviny",
+    date: "idk",
+    createdBy: "oodik",
+    type: "jidlo"
 });
 item.save()
 
