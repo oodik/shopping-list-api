@@ -1,7 +1,7 @@
 // create an express app
 const express = require("express");
 const app = express();
-app.use(express.json());
+
 
 const list = [{id:0, name: "piti", date:"udas"}];
 
