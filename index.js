@@ -37,15 +37,12 @@ const ListMongo = mongoose.model('List', listSchema);
 const key = "1234";
 
 app.get("/api/shopping-list", (req, res) => {
-  if (req.body.key == key) {
+
     async function getItems() {
       const itemsGet = await ListMongo.find();
      }
-        getMovies()
+        getItems()
         res.send("acces")
-  } else {
-      res.send("key error")
-  }
 
 });
 
