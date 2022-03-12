@@ -36,8 +36,9 @@ app.get("/api/shopping-list", (req, res) => {
     async function getItems() {
       const itemsGet = await ListMongo.find();
      }
-        
-        res.send(getItems());
+  
+        getItems();
+        res.send(itemsGet);
 
 });
 
