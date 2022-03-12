@@ -49,7 +49,7 @@ app.post('/api/shopping-list', (req, res) => {
 
       
     const itemPost = new ListMongo({
-      name: "saf",
+      name: this.req.body.name,
       date: "saff",
       createdBy: "moijoi",
       type: "jidlo"
