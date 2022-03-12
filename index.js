@@ -25,16 +25,6 @@ const listSchema = new mongoose.Schema({
 
 const ListMongo = mongoose.model('List', listSchema);
 
-const item = new ListMongo({
-    name: "těstoviny",
-    date: "idk",
-    createdBy: "oodik",
-    type: "jidlo"
-});
-item.save()
-
-
-
 
 
 
@@ -47,20 +37,29 @@ item.save()
 const key = "1234";
 
 app.get("/api/shopping-list", (req, res) => {
-
-        res.send("funkcni");
- 
+  if (req.body.key == key) {
+    async function getItems() {
+      const itemsGet = await ListMongo.find();
+     }
+        res.send(getMovies());
+  }
 });
 
 app.post('/api/shopping-list', (req, res) => {
     if (req.body.key == key) {
-    const item = {
-        id: list.length + 1,
-        name: req.body.name,
-        date: req.body.date
-    };
-    list.push(item);
-    res.send(item);
+    async function saveItem() {
+      
+    const itemPost = new ListMongo({
+      name: req.body.name,
+      date: req.body.date,
+      createdBy: req.body.who,
+      type: req.body.type
+      });
+      const result = await itemPost.save();
+      console.log(result.id);
+    }
+
+    res.send("uspěšné");
     } else {
         res.send("key error");
     }
