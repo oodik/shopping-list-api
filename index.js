@@ -46,14 +46,14 @@ app.get("/api/shopping-list", (req, res) => {
 
 app.post('/api/shopping-list', (req, res) => {
 
-    console.log(req.body);
+    
 
       
     const itemPost = new ListMongo({
-      name: "ashrt",
-      date: "saff",
-      createdBy: "moijoi",
-      type: "jidlo"
+      name: req.body.name,
+      date: req.body.date,
+      createdBy: req.body.who,
+      type: req.body.type
       });
 
 
