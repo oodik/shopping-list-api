@@ -57,7 +57,7 @@ app.post('/api/shopping-list', (req, res) => {
       createdBy: req.body.who,
       type: req.body.type
       });
-      await itemPost.save();
+      itemPost.save();
       console.log(result.id);
     }
   
