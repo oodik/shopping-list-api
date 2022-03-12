@@ -41,13 +41,14 @@ app.get("/api/shopping-list", (req, res) => {
     async function getItems() {
       const itemsGet = await ListMongo.find();
      }
-        getItems()
-        res.send("acces")
+        
+        res.send(getItems())
 
 });
 
 app.post('/api/shopping-list', (req, res) => {
-    if (req.body.key == key) {
+
+    if (req.body.key === "1234") {
     async function saveItem() {
       
     const itemPost = new ListMongo({
