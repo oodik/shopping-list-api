@@ -52,10 +52,10 @@ app.post('/api/shopping-list', (req, res) => {
       createdBy: req.body.who,
       type: "jidlo"
       });
-      
+      itemPost.save();
 
     }
-    itemPost.save();
+    saveItem();
     res.send("uspěšné");
 
 });
