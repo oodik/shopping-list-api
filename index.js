@@ -47,7 +47,7 @@ const key = "1234";
 
 app.get("/api/shopping-list", (req, res) => {
 
-        res.send(list);
+        res.send("funkcni");
  
 });
 
