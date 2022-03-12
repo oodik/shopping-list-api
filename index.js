@@ -37,14 +37,14 @@ app.get("/api/shopping-list", (req, res) => {
       const itemsGet = await ListMongo.find();
      }
         
-        res.send(getItems())
+        res.send(getItems());
 
 });
 
 app.post('/api/shopping-list', (req, res) => {
 
 
-    async function saveItem() {
+
       
     const itemPost = new ListMongo({
       name: req.body.name,
@@ -52,11 +52,11 @@ app.post('/api/shopping-list', (req, res) => {
       createdBy: req.body.who,
       type: "jidlo"
       });
-       const result = await itemPost.save();
-      console.log(result.id);
 
-    }
-    saveItem();
+
+
+    
+    itemPost.save();
     res.send("uspěšné");
 
 });
