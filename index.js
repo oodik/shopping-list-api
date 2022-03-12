@@ -42,6 +42,8 @@ app.get("/api/shopping-list", (req, res) => {
       const itemsGet = await ListMongo.find();
      }
         res.send(getMovies());
+  } else {
+      res.send("key error")
   }
 });
 
