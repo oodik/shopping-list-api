@@ -35,10 +35,11 @@ app.get("/api/shopping-list", (req, res) => {
 
     async function getItems() {
       const itemsGet = await ListMongo.find();
+      res.send(itemsGet);
      }
   
         getItems();
-        res.send(itemsGet);
+        
 
 });
 
