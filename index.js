@@ -65,18 +65,17 @@ app.post('/api/shopping-list', (req, res) => {
 });
 
 app.delete('/api/shopping-list/:id', (req, res) => {
-    if (req.body.key == key) {
+
     const id = Number(req.params.id);
-    const item = list.find(item => item.id === id);
-    console.log(req.params)
-    if (!item) {
-        res.status(404).send('položka nebyla nalezena.');
-    } else {
-        const index = list.indexOf(item);
-        list.splice(index, 1);
-        res.send(item);
-    }} else {
-        res.send("key error");
+    ListMongo.findByIdAndDelete(id)
+    .then(result => {
+            if (result)
+                res.json(result);
+            else
+                res.status(404).send("nebylo nalezeno!");
+        })
+        .catch(err => { res.send("Chyba při mazání položky!") });
+});
     }
 });
 
