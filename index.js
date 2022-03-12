@@ -69,7 +69,7 @@ app.post('/api/shopping-list', (req, res) => {
 app.delete('/api/shopping-list/:id', (req, res) => {
 
     const id = Number(req.params.id);
-    ListMongo.findByIdAndDelete("622c748accf4fffb10c89411")
+    ListMongo.findByIdAndDelete("" + id)
     .then(result => {
             if (result) {
               console.log(result);
