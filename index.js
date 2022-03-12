@@ -2,6 +2,8 @@
 const express = require("express");
 const app = express();
 
+
+
 const { MongoClient } = require("mongodb");
 const uri = process.env.MONGODB_URI + "/data";
 
@@ -11,12 +13,14 @@ app.use(express.static("public"));
 // define the first route
 app.get("/api", async function (req, res) {
   const client = new MongoClient(uri, { useUnifiedTopology: true });
-  
+
 
    await client.connect()
 	  .then(() => console.log('Connected to MongoDB!'))
 	  .catch(error => console.error('Could not connect to MongoDB... ', error));
   
+});
+
 
 const key = "1234";
 
@@ -79,4 +83,3 @@ app.delete('/api/shopping-list/:id', (req, res) => {
 });
 
 app.listen(3000, () => console.log('Listening on port 3000...'));
-
