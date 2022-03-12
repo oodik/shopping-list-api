@@ -50,12 +50,12 @@ app.post('/api/shopping-list', (req, res) => {
       name: req.body.name,
       date: req.body.date,
       createdBy: req.body.who,
-      type: req.body.type
+      type: "jidlo"
       });
-      itemPost.save();
-      console.log(result.id);
+      
+
     }
-  
+    itemPost.save();
     res.send("uspěšné");
 
 });
