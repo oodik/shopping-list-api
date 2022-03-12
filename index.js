@@ -5,7 +5,7 @@ app.use(express.json());
 var port = process.env.PORT || 1337;
 
 
-const list = [{id:0, name: "piti", date:"udas"}];
+
 
 
 // const { MongoClient } = require("mongodb");
@@ -18,6 +18,7 @@ mongoose.connect(uri, { useNewUrlParser: true })
 
 
 const listSchema = new mongoose.Schema({
+    id: Number,
     name: String,
     date: String,
     createdBy: String,
@@ -50,6 +51,7 @@ app.post('/api/shopping-list', (req, res) => {
 
       
     const itemPost = new ListMongo({
+      id: ListMongo.length + 1;
       name: req.body.name,
       date: req.body.date,
       createdBy: req.body.who,
