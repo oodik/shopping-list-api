@@ -37,14 +37,15 @@ const ListMongo = mongoose.model('List', listSchema);
 const key = "1234";
 
 app.get("/api/shopping-list", (req, res) => {
-  if (req.body.key == key) {
-    async function getItems() {
-      const itemsGet = await ListMongo.find();
-     }
-        res.send(getMovies());
-  } else {
-      res.send("key error")
-  }
+//   if (req.body.key == key) {
+//     async function getItems() {
+//       const itemsGet = await ListMongo.find();
+//      }
+//         res.send(getMovies());
+//   } else {
+//       res.send("key error")
+//   }
+  res.send("saggsagasgsa");
 });
 
 app.post('/api/shopping-list', (req, res) => {
