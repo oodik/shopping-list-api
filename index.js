@@ -36,6 +36,7 @@ app.post('/api/shopping-list/autoriz', (req, res) => {
     } else {
       res.send(chyba);
   }} else {
+    console.log(req.body);
     res.send("key je prazdne");
   
   }
