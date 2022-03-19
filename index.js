@@ -28,15 +28,22 @@ const listSchema = new mongoose.Schema({
 const ListMongo = mongoose.model('List', listSchema);
 
 
+app.post('/api/shopping-list/autoriz', (req, res) => {
+  if (req.body.key === "1234") {
+    res.send("uspěšné");
+  } else {
+    res.send(chyba);
+}
 
 
 
-const key = "1234";
+
 
 app.get("/api/shopping-list", (req, res) => {
 
     async function getItems() {
       const itemsGet = await ListMongo.find();
+      res.set(Access-Control-Allow-Origin, [true])
       res.send(itemsGet);
      }
   
@@ -47,9 +54,6 @@ app.get("/api/shopping-list", (req, res) => {
 
 app.post('/api/shopping-list', (req, res) => {
 
-    
-
-      
     const itemPost = new ListMongo({
       id: ListMongo.length + 1,
       name: req.body.name,
@@ -58,9 +62,6 @@ app.post('/api/shopping-list', (req, res) => {
       type: req.body.type
       });
 
-
-
-    
     itemPost.save();
     res.send("uspěšné");
 
