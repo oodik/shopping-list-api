@@ -30,11 +30,16 @@ const ListMongo = mongoose.model('List', listSchema);
 
 
 app.post('/api/shopping-list/autoriz', (req, res) => {
-  if (req.body.key === "1234") {
+  if (req.body.key) {
+    if (req.body.key === "1234") {
     res.send("uspěšné");
   } else {
     res.send(chyba);
-}});
+  } else {
+    res.send("key je prazdne");
+  }
+  }
+  });
 
 
 
