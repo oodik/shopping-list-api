@@ -34,7 +34,7 @@ app.post('/api/shopping-list/autoriz', (req, res) => {
     if (req.body.key === "1234") {
       res.send("uspěšné");
     } else {
-      res.send(chyba);
+      res.send("nesprávné heslo");
   }} else {
     console.log(req.body);
     res.send("key je prazdne");
