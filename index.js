@@ -2,10 +2,11 @@
 const express = require("express");
 const app = express();
 app.use(express.json());
+var cors = require('cors');
 var port = process.env.PORT || 1337;
 
 
-
+app.use(cors());
 
 
 // const { MongoClient } = require("mongodb");
@@ -33,7 +34,7 @@ app.post('/api/shopping-list/autoriz', (req, res) => {
     res.send("uspěšné");
   } else {
     res.send(chyba);
-}
+}});
 
 
 
@@ -43,7 +44,7 @@ app.get("/api/shopping-list", (req, res) => {
 
     async function getItems() {
       const itemsGet = await ListMongo.find();
-      res.set(Access-Control-Allow-Origin, [true])
+      
       res.send(itemsGet);
      }
   
