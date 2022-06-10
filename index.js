@@ -26,7 +26,7 @@ const listSchema = new mongoose.Schema({
     type: String
 });
 
-const ListMongo = mongoose.model('List', listSchema);
+const ListMongo = mongoose.model('Statistics', listSchema);
 
 
 app.post('/api/shopping-list/autoriz', (req, res) => {
@@ -43,10 +43,6 @@ app.post('/api/shopping-list/autoriz', (req, res) => {
   });
 
 
-
-
-
-
 app.get("/api/shopping-list", (req, res) => {
 
     async function getItems() {
@@ -57,7 +53,6 @@ app.get("/api/shopping-list", (req, res) => {
   
         getItems();
         
-
 });
 
 app.post('/api/shopping-list', (req, res) => {
